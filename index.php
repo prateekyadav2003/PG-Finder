@@ -35,6 +35,10 @@ session_start();
         </form>
     </div>
 
+    <?php 
+    include "includes/features.php";
+    ?>
+
     <div class="page-container">
         <h1 class="city-heading">
             Major Cities
