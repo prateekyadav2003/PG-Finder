@@ -79,10 +79,23 @@
         background-color: #4b47d9;
     }
 
+    .login-modal .forgot-btn{
+        text-align: right;
+    }
+
     .login-modal .modal-footer {
         text-align: center;
         font-size: 0.875rem;
         margin-top: 1rem;
+    }
+
+    button{
+        border: none;
+        color: white;
+        background-color: transparent;
+        outline: none;
+        font-weight: 450;
+        cursor: pointer
     }
 
     .login-modal .modal-footer span {
@@ -128,6 +141,10 @@
                         <button type="submit" class="btn-primary">Login</button>
                     </div>
                 </form>
+                <!----------------- Forgot password ------------------->
+                <div class="forgot-btn">
+                    <button type="button">Forgot Password?</button>
+                </div>
             </div>
 
             <div class="modal-footer">
@@ -135,7 +152,40 @@
                     <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signup-modal">Click here to register</a>
                 </span>
             </div>
+
+            
         </div>
     </div>
 </div>
+
+<!-- Forgot Password Modal -->
+<div class="modal" id="forgot-password-modal" tabindex="-1" aria-labelledby="forgot-password-heading" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="forgot-password-heading">Reset Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="forgot-password-form" method="post" action="api/forgot_password.php">
+                    <div class="form-group">
+                        <label for="forgot-email">Email</label>
+                        <input type="email" id="forgot-email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn-primary">Send Reset Link</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelector('.forgot-btn button').addEventListener('click', function() {
+    $('#forgot-password-modal').modal('show');
+});
+</script>
 
